@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div id="stage">
+    <div id="Container">
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.min.js"></script>
@@ -23,8 +23,8 @@
     <div>
         <h1>Tetera</h1>
         <h2>Martin Balbin</h2>
-        <br><a href="">Link del repositorio</a>
-        <br><a href="">Link Documentacion</a>
+        <br><a href="https://github.com/Martinfbr/TexturasJS">Link del repositorio</a>
+        <br><a href="https://1drv.ms/w/s!Au6Ys43NTELehwas9pgpILYadQVw?e=XrcDgy">Link Documentacion</a>
     </div>
 
 
@@ -51,7 +51,7 @@
         function init() {
             renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
-            $("#stage").append(renderer.domElement);
+            Container.append(renderer.domElement);
             scene = new THREE.Scene();
             createCamera();
             createVasija();
@@ -66,7 +66,7 @@
                 function (objecto) {
                     mesh = objecto.scene;
                     mesh.children[0].material = new THREE.MeshNormalMaterial();
-                    mesh.scale.set(1, 1, 1);
+                    mesh.scale.set(1.2, 1.2, 1.2);
                     scene.add(mesh);
                 });
         }
@@ -74,9 +74,7 @@
         function crearLuz() {
             var luz = new THREE.PointLight(0xffffff, 0.5);
             scene.add(luz);
-
-            var Ambiente = new THREE.AmbientLight(0xffffff, 0.5);
-            scene.add(Ambiente);
+          
         }
 
         function render() {
